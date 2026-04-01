@@ -10,7 +10,7 @@
           "download": true
         }
       },
-      "id": "4cf5aa2e-291e-435d-82a9-3e055125bfa9",
+      "id": "4cf5aa2e-291ea9-3e055125bfa9",
       "name": "Telegram Trigger",
       "type": "n8n-nodes-base.telegramTrigger",
       "typeVersion": 1.2,
@@ -18,10 +18,10 @@
         256,
         496
       ],
-      "webhookId": "384b9635-babc-4f85-a2c6-5a3822748ab5",
+      "webhookId": "384b9635-babc2c6-5a3822748ab5",
       "credentials": {
         "telegramApi": {
-          "id": "NliCACtJ2MWMtNHV",
+          "id": "NliCACtJ2MW",
           "name": "Telegram account"
         }
       }
@@ -33,7 +33,7 @@
           "visibility": "public"
         }
       },
-      "id": "4e34d352-690a-4f8c-b56e-81164b0b1b71",
+      "id": "4e34d352c-b56e-81164b0b1b71",
       "name": "URLScan.io Analysis",
       "type": "n8n-nodes-base.urlScanIo",
       "typeVersion": 1,
@@ -43,7 +43,7 @@
       ],
       "credentials": {
         "urlScanIoApi": {
-          "id": "sNchqpX0sWGQm9qT",
+          "id": "",
           "name": "urlscan.io account"
         }
       }
@@ -57,7 +57,7 @@
           "parameters": [
             {
               "name": "X-Apikey",
-              "value": "aef3f58b1eb9aa658d6fcc4ad6e8ea4ec0ea07269cdebf6bc84cde7a38d59cef"
+              "value": ""
             }
           ]
         },
@@ -73,7 +73,7 @@
         },
         "options": {}
       },
-      "id": "ab4a9677-cd45-4302-ba7c-cea83b32fbf4",
+      "": "ab4a9677-ba7c-cea83b32fbf4",
       "name": "VirusTotal Analysis",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.4,
@@ -88,7 +88,7 @@
         "combineBy": "combineByPosition",
         "options": {}
       },
-      "id": "b1f4d5f4-0c36-4293-9f06-e10645acbaea",
+      "": "b1f4d5f4-9f06-e10645acbaea",
       "name": "Merge Results",
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3.2,
@@ -102,7 +102,7 @@
         "assignments": {
           "assignments": [
             {
-              "id": "id-1",
+              "": "-1",
               "name": "analysisReport",
               "value": "=🔒 **PHISHING ANALYSIS REPORT**\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n**🔗 ANALYZED URL**\n`{{ $('Telegram Trigger').item.json.message.text }}`\n\n**📅 SCAN DATE**\n{{ $now.format('MMMM dd, yyyy') }} at {{ $now.format('HH:mm:ss') }} UTC\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n{{ $('AI Security Analyst').item.json.output }}\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n**📊 SCAN REFERENCES**\n• URLScan: {{ $('URLScan.io Analysis').item.json.result }}\n• VirusTotal: {{ $('VirusTotal Analysis').item.json.data.links.self }}",
               "type": "string"
@@ -111,7 +111,7 @@
         },
         "options": {}
       },
-      "id": "4a54d559-c2c1-408c-8848-edfd31d3781b",
+      "": "4a54d559-8c-8848-edfd31d3781b",
       "name": "Format Results",
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
@@ -122,14 +122,14 @@
     },
     {
       "parameters": {
-        "chatId": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
+        "chat": "={{ $('Telegram Trigger').item.json.message.chat. }}",
         "text": "={{ $json.analysisReport }}",
         "additionalFields": {
           "appendAttribution": false,
           "parse_mode": "Markdown"
         }
       },
-      "id": "2ce3ada3-0e9a-4bcf-aa4c-000f64b3e998",
+      "": "2ce3ada3-aa4c-000f64b3e998",
       "name": "Send Results to Telegram",
       "type": "n8n-nodes-base.telegram",
       "typeVersion": 1.2,
@@ -137,10 +137,10 @@
         1728,
         592
       ],
-      "webhookId": "bc19ebcb-9f34-4090-82ce-47b0c74ade11",
+      "webhook": "bc19ebcb-9f34-4090-82ce-47b0c74ade11",
       "credentials": {
         "telegramApi": {
-          "id": "NliCACtJ2MWMtNHV",
+          "": "",
           "name": "Telegram account"
         }
       }
@@ -153,7 +153,7 @@
           "systemMessage": "You are a professional cybersecurity analyst. Analyze the URLScan.io and VirusTotal scan results and provide a structured security assessment report with the following sections:\n\n**THREAT ASSESSMENT**\nProvide an overall risk rating: ✅ SAFE | ⚠️ SUSPICIOUS | 🚨 MALICIOUS\n\n**URLSCAN.IO FINDINGS**\nSummarize key indicators from URLScan.io analysis\n\n**VIRUSTOTAL FINDINGS**\nSummarize detection results and vendor flags\n\n**INDICATORS OF COMPROMISE**\nList specific red flags or suspicious patterns identified\n\n**RECOMMENDATION**\nProvide clear action items for the user\n\nUse professional security terminology and be concise but thorough."
         }
       },
-      "id": "96b1a42b-3e9d-44eb-a66c-5569beee1be0",
+      "id": "96b1a42b-eb-a66c-5569beee1be0",
       "name": "AI Security Analyst",
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 3.1,
@@ -172,7 +172,7 @@
         "builtInTools": {},
         "options": {}
       },
-      "id": "cc94e8f7-2ddd-4da5-a5ae-b9febc93aeca",
+      "id": "cc94e8f7-2ddd5-a5ae-b9febc93aeca",
       "name": "OpenAI Chat Model",
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1.3,
@@ -182,7 +182,7 @@
       ],
       "credentials": {
         "openAiApi": {
-          "id": "ivZKa2UtRO7MUt5t",
+          "id": "",
           "name": "n8n free OpenAI API credits"
         }
       }
@@ -229,7 +229,7 @@
         },
         "options": {}
       },
-      "id": "ef87c7a6-eb95-4de1-bfdb-13a61dcc13ca",
+      "id": "ef87c7a6-eb95db-13a61dcc13ca",
       "name": "Validate URL Input",
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
@@ -247,7 +247,7 @@
           "parse_mode": "Markdown"
         }
       },
-      "id": "fa8c3b6a-99d6-4983-9bd6-080366e322b0",
+      "id": "fa8c3b6a-4983-9bd6-080366e322b0",
       "name": "Send Help Message",
       "type": "n8n-nodes-base.telegram",
       "typeVersion": 1.2,
@@ -255,10 +255,10 @@
         704,
         304
       ],
-      "webhookId": "b9b14802-110f-4347-9d7b-866ace6ceb4c",
+      "webhookId": "b9b14802-11-4347-9d7b-866ace6ceb4c",
       "credentials": {
         "telegramApi": {
-          "id": "NliCACtJ2MWMtNHV",
+          "id": "",
           "name": "Telegram account"
         }
       }
@@ -372,11 +372,11 @@
     "executionOrder": "v1",
     "binaryMode": "separate"
   },
-  "versionId": "cefbcd83-f6cc-4bcc-ac49-1b2d012f6328",
+  "versionId": "cefbcd83-f6cc-4bcc-a9-1b2d012f6328",
   "meta": {
     "templateCredsSetupCompleted": true,
-    "instanceId": "3453e316578d9581d9d6af0657cce0fe2eb023e0bf52e94ec9a04042cf7614fa"
+    "instanceId": "3453e316578d9581d9d6af0657cce0fe2eb0bf52e94ec9a04042cf7614fa"
   },
-  "id": "kPc2dEUjzc7Q9eQq",
+  "id": "kPc2dEUc7Q9eQq",
   "tags": []
 }
