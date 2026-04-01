@@ -229,7 +229,7 @@
         },
         "options": {}
       },
-      "id": "ef87c7a6-eb95db-13a61dcc13ca",
+      "id": "ef87c7a6-eb95db-13a61dccca",
       "name": "Validate URL Input",
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
@@ -247,7 +247,7 @@
           "parse_mode": "Markdown"
         }
       },
-      "id": "fa8c3b6a-4983-9bd6-080366e322b0",
+      "id": "fa8c3b6a-4983-9bd6-0e322b0",
       "name": "Send Help Message",
       "type": "n8n-nodes-base.telegram",
       "typeVersion": 1.2,
@@ -255,7 +255,7 @@
         704,
         304
       ],
-      "webhookId": "b9b14802-11-4347-9d7b-866ace6ceb4c",
+      "webhookId": "b9b14802-11-4347-9d7b-86eb4c",
       "credentials": {
         "telegramApi": {
           "id": "",
@@ -372,11 +372,11 @@
     "executionOrder": "v1",
     "binaryMode": "separate"
   },
-  "versionId": "cefbcd83-f6cc-4bcc-a9-1b2d012f6328",
+  "versionId": "cefbcd83c-a9-1b2d012f6328",
   "meta": {
     "templateCredsSetupCompleted": true,
-    "instanceId": "3453e316578d9581d9d6af0657cce0fe2eb0bf52e94ec9a04042cf7614fa"
+    "instanceId": "3453e316578d9581a04042cf7614fa"
   },
-  "id": "kPc2dEUc7Q9eQq",
+  "id": "kPc2dQ9eQq",
   "tags": []
 }
